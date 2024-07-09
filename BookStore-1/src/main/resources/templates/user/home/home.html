@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org" >
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" th:href="@{/CSS/Home.css}">
+<script type="text/javascript" th:src="@{/JS/userPage.js}"></script>
+
+</head>
+<body>
+
+
+<div class="div-c">
+	<nav>
+		<h1>Book Store</h1>
+		<div class="hdbtn">
+		<button class="navbtn" onclick="window.location.href='/user/book/get/all'">Books</button>
+		<span th:unless="${admin}">
+			<button class="navbtn" onclick="window.location.href='/user/cart/get/all'">Go to Cart</button>
+			<button class="navbtn" onclick="window.location.href='/user/wishlist/get/all'">Go to wishlist</button>
+		</span>
+		<span th:if="${admin}">
+			<button class="navbtn" onclick="window.location.href='/user/home/admin/get'">Find User</button>
+			</span>
+		<button class="lognavbtn" onclick="window.location.href='/user/home/logoutUser'">logout</button>
+		</div>
+	</nav>
+
+<div class="div-1">
+	<div class="info">
+	<p>Welcome, <span style="color: Red;"  th:text="${User.fullName}"></span></p>
+		<p><span >Role:</span> <span style="color: Red;" th:text="${User.role}"></span></p>
+		<p>The bookstore app revolutionizes the way readers discover, purchase, and enjoy books. With its user-friendly interface, the app provides an extensive catalog of titles across various genres, catering to diverse literary tastes. Users can easily browse, search, and filter books by author, genre, or popularity, making it effortless to find their next read. Personalized recommendations based on reading history and preferences enhance the discovery process, ensuring each user finds books they'll love. The app supports both e-books and audiobooks, allowing users to switch seamlessly between reading and listening. In-app purchases are streamlined and secure, with multiple payment options available. The virtual bookshelf feature helps users organize their collection and track their reading progress. Social features, like sharing reviews and reading lists with friends, foster a community of book lovers. Additionally, the app offers exclusive author interviews, book previews, and special promotions, keeping users engaged and informed about the latest releases. For those who prefer physical books, the app integrates with local bookstores, providing availability and location details. The app's offline mode ensures that users can access their library and read without an internet connection.</p>
+		
+		<span th:if="${msg!=''}">
+		<p  style="color: red;" ><span th:text="${msg}"></span>, Search Again</p>
+		</span>
+	</div>
+	<div class="divbutton">
+		<div class="button-user">
+			<button class="opbtn" onclick="window.location.href='/user/home/updateUser'">Update Your Info</button>
+			<button class="opbtn" th:onclick="deleteUser(event, '/user/home/deleteUser')" >Delete Account</button> <!-- onclick="window.location.href='/user/home/deleteUser'" -->
+			<button class="opbtn" onclick="window.location.href='/user/home/setRole'">change Role?</button>
+		</div>
+		
+		<div class="button-book">
+			
+		</div>
+	</div>
+</div>
+</div>
+
+
+
+<div th:unless="${admin}" class="book-div">
+<div class="bookshead">
+	<h1>My Books</h1>
+</div>
+<div class="booktable"></div>
+<table th:unless="${books==null}">
+		<tr>
+			<th>Sl no.</th>
+			<th>Book Name</th>
+			<th>Author</th>
+			<th>Price</th>
+			<th>No. of Items</th>
+			<th >Operation</th>
+		</tr>
+
+	<span  th:each="books, iterationStatus: ${books}">
+		<tr th:each="book: ${books.key}">
+		
+			<td th:text="${iterationStatus.count}"></td>
+			<td th:text="${book.bookName}"></td>
+			<td th:text="${book.author}"></td>
+			<td th:text="${book.price}"></td>
+			<td th:text="${books.value}"></td>
+			<td><a th:href="@{/user/book/remove(bookName=${book.bookName})}" ><button type="button">Remove</button></a></td>
+			
+		</tr>
+		</span>
+</table>
+</div>
+</body>
+</html>

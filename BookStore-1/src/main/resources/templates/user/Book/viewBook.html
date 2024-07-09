@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="/user/book/get/byName" method="get">
+		<label>Enter Book Name:</label>
+		<input type="text" name="bookName"/>
+		<button type="submit">Search</button>
+		</form>
+<table th:unless="${books==null}" >
+			<tr>
+				<th>Book Name</th>
+				<th>Author</th>
+				<th>Price</th>
+				<th>Rating</th>
+				<th>Update</th>
+				<th>Delete</th>
+			</tr>
+			<tr th:each="book: ${books}">
+				<td th:text="${book.bookName}"></td>
+				<td th:text="${book.author}"></td>
+				<td th:text="${book.price}"></td>
+				<td th:text="${book.rating}"></td>
+				<td><a th:href="@{/user/home/updateBook(bookName=${book.bookName})}" ><button type="button">update</button></a></td>
+				<td><a th:href="@{/user/book/delete(bookName=${book.bookName})}" ><button type="button">Delete</button></a></td>
+				
+			</tr>
+		</table>
+</body>
+</html>

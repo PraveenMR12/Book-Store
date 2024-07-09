@@ -1,0 +1,126 @@
+@charset "ISO-8859-1";
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+body{
+    margin: 0;
+    height: 100vh;
+    background-color: #643900;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+nav {
+	position: fixed;
+	height: 80px;
+	background-color: black;
+	color: white;
+	top: 0;
+	left: 0;
+	right: 0;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	padding: 15px;
+	background-image: url("../images/b3.jpg");
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
+
+.container{
+	width: 400px;
+    height: auto;
+   	padding: 20px 35px 20px 20px;
+	box-shadow: 20px 20px 30px #2a2a2a;
+    background-color: black;
+    color: white;
+    border-radius: 8px;
+}
+
+form{
+	
+}
+h1 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+input{
+	width: 100%;
+	border: none;
+	box-sizing: border-box;
+    outline: none;
+    background: none;
+    background-color: #e0e0e0;
+    padding: 0.8rem 1.1rem;
+    border-radius: 4px;
+    margin: 10px;
+    font-size: 1.2rem;
+    color: #000000;
+	box-shadow:inset 5px 5px 11px rgba(0, 0, 0, 0.2),
+		inset -5px -5px 11px rgba(255, 255, 255, 0.75);
+}
+button{
+	height: 50px;
+	width: 100%;
+	margin: 10px;
+	justify-content: center;
+	align-items:center;
+	align-content: center;
+	display: flex;
+	background-color: #5b2e00;
+	border-radius: 5px;
+	text-align: center;
+	display: inline-block;
+	font-size: 12px;
+	color: white;
+	
+}
+
+.navbtn{
+	border: none;
+	background-color: rgba(0,0,0,0);
+	color: white;
+	width: 200px;
+	font-size: 40px;
+	font-family: fantasy;
+	font-weight: normal;
+}
+.navbtn:hover{
+	border: none;
+}
+button:hover{
+	background-color: rgba(0,0,0,0);
+	border-style: solid;
+	border-color: white;
+	border-width: 1px;
+	cursor: pointer;
+}
+.for{
+	font-weight:bold;
+	font-size: 12px; 
+	display: flex;
+	justify-content: space-between;
+	padding: 0 0 0 10px;
+}
+a{
+	text-decoration: none;
+	color: #ff00ff; 
+}
+
+label{
+	display: block;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    text-align: left;
+    font-weight: bold;
+}

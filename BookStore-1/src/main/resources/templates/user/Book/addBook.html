@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css"  th:href="@{/css/addBook.css}" />
+</head>
+<body>
+
+<div class= "container">
+<nav>
+	<div >
+		<button class="navbtn" th:onclick="window.location.href='/user/home'">Book Store</button>
+	</div>
+	<div class="head">
+		
+	</div>
+	
+</nav>
+<h1 >Add Book</h1>
+<span th:if="${text!=null}">
+		<p style="color: red; font-size: 13px;" th:text="${text}">hii</p>
+</span>
+<form action="/user/book/create" method="post">
+	<label>Book Name:</label>
+	<input type="text" size="2" name="bookName"/><br>
+	<span th:if="${msg!=null}">
+	<span th:each="msg: ${msg}">
+		<span th:if="${msg.key=='bookName'}">
+			<p style="color: red; font-size: 13px;" th:text="${msg.value}"></p>
+		</span>
+	</span>
+	</span>
+	<label>Author:</label>
+	<input type="text" name="author"/><br>
+	<span th:if="${msg!=null}">
+	<span th:each="msg: ${msg}">
+		<span th:if="${msg.key=='author'}">
+			<p style="color: red; font-size: 13px;" th:text="${msg.value}"></p>
+		</span>
+	</span>
+	</span>
+	<label>Rating:</label>
+	<input type="number" min="1" max="5" step="0.01" name="rating"/><br>
+	<span th:if="${msg!=null}">
+	<span th:each="msg: ${msg}">
+		<span th:if="${msg.key=='rating'}">
+			<p style="color: red; font-size: 13px;" th:text="${msg.value}"></p>
+		</span>
+	</span>
+	</span>
+	<label>Price:</label>
+	<input type="number" step="0.01" name="price"/><br>
+	<span th:if="${msg!=null}">
+	<span th:each="msg: ${msg}">
+		<span th:if="${msg.key=='price'}">
+			<p style="color: red; font-size: 13px;" th:text="${msg.value}"></p>
+		</span>
+	</span>
+	</span>
+	<button class="submit" type="Submit">Submit</button>
+</form>
+</div>
+</body>
+</html>

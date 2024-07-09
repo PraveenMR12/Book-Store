@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css"  th:href="@{/css/updatePage.css}" />
+
+</head>
+<body>
+<nav>
+	<div class="hmbtn">
+		<button class="navbtn" th:onclick="window.location.href='/user/home'">Book Store</button>
+	</div>
+	<div class="head">
+		
+	</div>
+</nav>
+
+<div class="container">
+	<h1>Update Page</h1>
+	<span th:if="${msg!=null}">
+		<p style="color: red; font-size: 13px;" th:text="${msg}"></p>
+	</span>
+	<form action="/user/home/updateUser" method="post">
+		<label>Full Name:</label>
+		<input type="text" name="fullName" /><br>
+		<label>Password:</label>
+		<input type="password" name="password" /><br>
+		<label>Phone No:</label>
+		<input type="tel" name="phoneNumber"/><br>
+		<button onclick="Submit">Submit</button>
+	</form>
+</div>
+</body>
+</html>

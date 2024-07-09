@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css"  th:href="@{/css/wishlist.css}" />
+
+</head>
+<body>
+<nav>
+	<div class="hmbtn">
+	</div>
+	<div class="head">
+		<h1>Wishlist</h1>
+	</div>
+	<div class="hdbtn">
+			<button class="navbtn" th:onclick="window.location.href='/user/home'">Home</button>
+		<button class="navbtn" onclick="window.location.href='/user/book/get/all'">Books</button>
+		<span th:unless="${admin}">
+			<button class="navbtn" onclick="window.location.href='/user/cart/get/all'">Go to Cart</button>
+		</span>
+		</div>
+</nav>
+<div class="table">
+	<table th:unless="${books==null}" >
+		<tr>
+				<th>Sl no.</th>
+				<th>Book Name</th>
+				<th>Author</th>
+				<th>Price</th>
+				<th colspan="2">Operation</th>
+			</tr>
+		<tr th:each="book, iterationStatus: ${books}">
+			<td th:text="${iterationStatus.count}"></td>
+			<td th:text="${book.bookName}"></td>
+			<td th:text="${book.author}"></td>
+			<td th:text="${book.price}"></td>
+			<td><a th:href="@{/user/wishlist/remove(bookName=${book.bookName})}" ><button type="button">Remove</button></a></td>
+			<td><a th:href="@{/user/cart/addBook(bookName=${book.bookName})}" ><button type="button">Add to Cart</button></a></td>
+		</tr>
+	</table>
+	</div>
+	<div  class="buttons" th:if="${books==null}">
+		<button class="b-b" th:onclick="window.location.href='/user/book/get/all'">Go to Book Store</button>
+	</div>
+</body>
+</html>

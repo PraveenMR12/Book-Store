@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css"  th:href="@{/css/signUp.css}" />
+</head>
+<body>
+<nav>
+		<button class="navbtn" th:onclick="window.location.href='/'">BookStore</button>
+</nav>
+<div class="container">
+		<h1>Sign Up</h1>
+		<span th:if="${error!=null}">
+			<p style="color: red; font-size: 13px;" th:text="${error}"></p>
+		</span>
+		<form action="/user/signup" method="post">
+		<label>Full Name:</label>
+		<input type="text" name="fullName" /><br>
+		<span th:if="${msg!=null}">
+		<span th:each="msg: ${msg}">
+			<span th:if="${msg.key=='fullName'}">
+				<p style="color: red; font-size: 13px;" th:text="${msg.value}"></p>
+			</span>
+		</span>
+		</span>
+		<label>Email:</label>
+		<input type="email" name="email" /><br>
+		<span th:if="${msg!=null}">
+		<span th:each="msg: ${msg}">
+			<span th:if="${msg.key=='email'}">
+				<p style="color: red; font-size: 13px;" th:text="${msg.value}"></p>
+			</span>
+		</span>
+		</span>
+		<label>Password:</label>
+		<input type="password" name="password" /><br>
+		<span th:if="${msg!=null}">
+		<span th:each="msg: ${msg}">
+			<span th:if="${msg.key=='password'}">
+				<p style="color: red; font-size: 13px;" th:text="${msg.value}"></p>
+			</span>
+		</span>
+		</span>
+		<label>Phone No:</label>
+		<input type="tel" name="phoneNumber" /><br>
+		<span th:if="${msg!=null}">
+		<span th:each="msg: ${msg}">
+			<span th:if="${msg.key=='phoneNumber'}">
+				<p style="color: red; font-size: 13px;" th:text="${msg.value}"></p>
+			</span>
+		</span>
+		</span>
+		<div class="for">
+		<a href="/user/login">Already have an account?</a>
+		</div>
+		<button class="btn" onclick="Submit">Submit</button>
+	</form>
+</div>
+</body>
+</html>

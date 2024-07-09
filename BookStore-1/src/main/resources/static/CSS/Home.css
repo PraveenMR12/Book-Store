@@ -1,0 +1,139 @@
+@charset "ISO-8859-1";
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
+	background-color: #643900;
+	color: white;
+}
+
+nav{
+	height: 70px;
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+	padding: 25px 0 20px 25px;
+	color: white;
+	font-size: 30px;
+	background-image: url("../Images/home1.jpg");
+	background-repeat: no-repeat;
+	background-size: 100%;
+	font-family: fantasy;
+	font-weight: normal;
+
+}
+.hdbtn{
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	margin: 0 0 0 auto;
+}
+.div-c{
+	background-image: url("../Images/home1.jpg");
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
+.div-1{
+	height: 93vh;
+	width: 100%;
+	display: flex;
+	padding: 0;
+	margin: 0;
+}
+.info{
+	font-size: 20px;
+	padding: 20px;
+	width: 80%;
+	padding: 200px 0 200px 250px;
+}
+.divbutton{
+	width: 100%;
+	height: 80vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: black;
+}
+
+button{
+	height: 50px;
+	width: 100px;
+	margin: 20px;
+	justify-content: center;
+	align-items:center;
+	align-content: center;
+	display: flex;
+	background-color: #5b2e00;
+	border-radius: 5px;
+	text-align: center;
+	display: inline-block;
+	font-size: 12px;
+	color: white;
+	
+}
+.lognavbtn{
+	border: none;
+	font-size: 15px;
+	font-weight: bold;
+	background-color: rgba(0,0,0,0);
+	color: white;
+	width: 120px;
+	border-style: solid;
+	border-color: white;
+	border-width: 1px;
+}
+.navbtn{
+	border: none;
+	font-size: 15px;
+	font-weight: bold;
+	background-color: rgba(0,0,0,0);
+	color: white;
+	width: 120px;
+}
+button:hover{
+	background-color: rgba(0,0,0,0);
+	border-style: solid;
+	border-color: white;
+	border-width: 1px;
+	cursor: pointer;
+}
+
+.button-1, .button-2{
+	padding: 10px;
+}
+.book-div{
+	border-style: none none none none;
+	justify-content: center;
+	height: auto;
+	width: 100%;
+	padding: 100px;
+		height: 100vh;
+	
+}
+.bookshead{
+	font-size: 30px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	margin: 0 0 20px 0
+}
+.booktable{
+	
+}
+table {
+	border-style: solid ;
+	border-collapse: collapse;
+	width: 100%;
+}
+tr, th,td{
+	border-style: solid;
+	padding: 10px;
+	text-align: center;
+	padding: 0;
+}
+th {
+	background-color: #c0c0c0;
+}

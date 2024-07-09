@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Something went wrong</h1>
+	<p>Full authentication required</p>
+	<div th:if="${response!=null}">
+		<p th:text="${response.msg}"></p>
+		
+	</div>
+	<button onclick="window.location.href='/user/login'">Go to login</button>
+</body>
+</html>

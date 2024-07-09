@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css"  th:href="@{/css/login.css}" />
+</head>
+<body>
+<nav>
+		<button class="navbtn" th:onclick="window.location.href='/'">BookStore</button>
+</nav>
+<div class="container">
+	<h1>Login Page</h1>
+	<span th:if="${msg!=null}">
+		<p style="color: red; font-size: 13px;" th:text="${msg}"></p>
+	</span>
+	<form action="/user/login" method="post">
+		<label>Email:</label>
+		<input type="email" name="email" /><br>
+		<label>Password:</label>
+		<input type="password" name="password" /><br>
+		<div class="for">
+		<a href="/forgotPassword">forgot Password?</a>
+		<a href="/user/signup">Don't have an account?</a>
+		</div>
+		<button class="btn" onclick="Submit">Submit</button>
+	</form>
+</div>
+</body>
+</html>

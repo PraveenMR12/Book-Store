@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css"  th:href="@{/css/findUserPage.css}" />
+<script type="text/javascript" th:src="@{/JS/userPage.js}"></script>
+</head>
+<body >
+<div>
+<nav>
+	<div class="hmbtn">
+		<button class="navbtn" th:onclick="window.location.href='/user/home'">BookStore</button>
+	</div>
+	
+</nav>
+</div>
+
+<div class="head">
+		<h1>Find User</h1>
+</div>
+
+<div id="form" class="formcont">
+		<form action="/user/home/getUser" method="post">
+		<input type="email" name="email" placeholder="Enter Email"/>
+		<button type="submit">Find</button>
+		</form>
+		<button class="but" th:onclick="showAllUsersDiv()">Find all User</button>
+</div>
+<div  class="tablecont">
+	<div>
+	<table>
+			<tr>
+				<th>name</th>
+				<th>email</th>
+				<th>phoneNumber</th>
+			</tr>
+			<tr th:each="user: ${users}">
+				<td th:text="${user.fullName}"></td>
+				<td th:text="${user.email}"></td>
+				<td th:text="${user.phoneNumber}"></td>
+			</tr>
+		</table>
+		</div>
+		
+	</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css"  th:href="@{/css/getBook.css}" />
+</head>
+<body>
+<nav>
+	<button  class="navhdbtn" th:onclick="window.location.href='/user/home'">BookStore</button>
+	<div class="hdbtn">
+		<span th:unless="${admin}">
+			<button class="navbtn" onclick="window.location.href='/user/cart/get/all'">Go to Cart</button>
+			<button class="navbtn" onclick="window.location.href='/user/wishlist/get/all'">Go to wishlist</button>
+		</span>
+		<span th:if="${admin}">
+			<button class="navbtn" onclick="window.location.href='/user/home/admin/createBook'">add Book</button>
+		</span>
+	</div>
+</nav>
+
+	<div class="head">
+		<h1>Get Book</h1>
+	</div>
+
+<div id="form" class="formcont">
+	
+		<form action="/user/book/get/byName" method="get">
+		<input type="text" name="bookName" placeholder="Enter the Book Name"/>
+		<button type="submit">Search</button>
+		</form>
+		<button th:onclick="window.location.href='/user/book/get/all'">Find all Books</button></a> 
+		
+	
+	
+</div>
+<div>
+	<span th:if="${msg!=null}">
+		<p style="color: red; font-size: 13px;" th:text="${msg}"></p>
+	</span>
+</div>
+<div  class="tablecont">
+	
+		<table th:unless="${books==null}" >
+			<tr>
+				<th>Book Name</th>
+				<th>Author</th>
+				<th>Price</th>
+				<th>Rating</th>
+				<th colspan="4">Operation</th>
+			</tr>
+			<tr th:each="book: ${books}">
+				<td th:text="${book.bookName}"></td>
+				<td th:text="${book.author}"></td>
+				<td th:text="${book.price}"></td>
+				<td th:text="${book.rating}"></td>
+				<td th:if="${admin}"><a th:href="@{/user/home/admin/updateBook(bookName=${book.bookName},author=${book.author},price=${book.price},rating=${book.rating})}" ><button type="button">update</button></a></td>
+				<td th:if="${admin}"><a th:href="@{/user/book/delete(bookName=${book.bookName})}" ><button type="button">Delete</button></a></td>
+				<td th:unless="${admin}"><a  th:href="@{/user/cart/addBook(bookName=${book.bookName})}" ><button type="button">Add to Cart</button></a></td>
+				<td th:unless="${admin}"><a th:href="@{/user/wishlist/addBook(bookName=${book.bookName})}" ><button type="button">Add to Wishlist</button></a></td>
+				
+			</tr>
+		</table>
+</div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css"  th:href="@{/css/otpVerification.css}" />
+</head>
+<body>
+<nav>
+	<button class="navbtn" th:onclick="window.location.href='/user/home'">BookStore</button>
+	<div class="head"></div>
+	
+</nav>
+<div class="main-container">
+<div class="container">
+<h1>Verify Otp</h1>
+<form action="/user/home/adminOtpVerification" method="post">
+	<label>Enter otp:</label>
+	<input type="text" name="otp" ><br>
+	<span th:if="${msg!=null}">
+		<p style="color: red; font-size: 13px;" th:text="${msg}"></p>
+	</span>
+	<button type="submit">Submit</button>
+</form>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,140 @@
+@charset "ISO-8859-1";
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body{
+	background-color: #643900;
+	color: white;
+	height: auto;
+}
+nav {
+	position: fixed;
+	height: 70px;
+	background-color: black;
+	color: white;
+	top: 0;
+	left: 0;
+	right: 0;
+	display: flex;
+	align-items: center;
+	font-size: 30px;
+	background-image: url("../Images/home1.jpg");
+	background-repeat: no-repeat;
+	background-size: 100%;
+	font-family: fantasy;
+	font-weight: normal;
+}
+.head{
+	margin-top: 70px;
+	padding: 0 0 10px 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	
+}
+.divCon-1{
+	margin: 60px 0 0 0;
+	padding: 0;
+	display: flex;
+	justify-content: flex-start;
+}
+.formcont{
+	padding: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	border: 1px;
+	border-style:solid ;
+	border-color: black;
+}
+input{
+	width: 340px;
+	height: 34px;
+	padding: 10px;
+	border: none;
+	outline: none;
+	border-radius: 3px;
+	box-shadow:inset 5px 5px 15px rgb(128, 128, 128),
+		inset -5px -5px 11px rgba(255, 255, 255, 0.75);
+	
+}
+label{
+	font-family: fantasy;
+	font-size: 20px;
+	margin-top: 20px;
+}
+button{
+	height: 50px;
+	width: 100px;
+	margin: 20px;
+	justify-content: center;
+	align-items:center;
+	align-content: center;
+	display: flex;
+	background-color: #5b2e00;
+	border-radius: 5px;
+	text-align: center;
+	display: inline-block;
+	font-size: 12px;
+	color: white;
+	
+}
+
+.navbtn{
+	border: none;
+	background-color: rgba(0,0,0,0);
+	color: white;
+	width: 200px;
+	font-size: 47px;
+	font-family: fantasy;
+	font-weight: normal;
+}
+.navbtn:hover{
+	border: none;
+}
+button:hover{
+	background-color: rgba(0,0,0,0);
+	border-style: solid;
+	border-color: white;
+	border-width: 1px;
+	cursor: pointer;
+}
+.tablecont{
+	border: 1px;
+	border-style:solid ;
+	border-color: black;
+	height: auto;
+	min-height: 80vh;
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	padding: 20px;
+}
+table {
+	width: 780px;
+	border-style: ridge;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	align-items: center;
+	border-collapse: collapse;
+	
+}
+th,td{
+	width: 260px;
+	border: 2px;
+	border-style: solid;
+	padding: 10px;
+}
+tr{
+	height: 40px;
+}
+th{
+	background-color:  #583301;
+	border-style: solid;
+	border-width: 3px;
+}

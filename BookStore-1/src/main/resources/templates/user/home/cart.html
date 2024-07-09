@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css"  th:href="@{/css/cart.css}" />
+</head>
+<body>
+	<nav>
+	<div class="head">
+		<h1 >Cart</h1>
+	</div>
+	<div class="hdbtn">
+		<button class="navbtn" th:onclick="window.location.href='/user/home'">Home</button>
+		<button class="navbtn" onclick="window.location.href='/user/book/get/all'">Books</button>
+		<span th:unless="${admin}">
+			<button class="navbtn" onclick="window.location.href='/user/wishlist/get/all'">Go to wishlist</button>
+		</span>
+	</div>
+	</nav>
+
+
+	
+	<div class="table">
+	<table th:unless="${books==null}" >
+			<tr>
+				<th>Sl no.</th>
+				<th>Book Name</th>
+				<th>Author</th>
+				<th>Price</th>
+				<th ></th>
+				<th>No. of Items</th>
+			</tr>
+		<span  th:each="books, iterationStatus: ${books}">
+		<tr th:each="book: ${books.key}">
+		
+		
+			<td th:text="${iterationStatus.count}"></td>
+			<td th:text="${book.bookName}"></td>
+			<td th:text="${book.author}"></td>
+			<td th:text="${book.price}"></td>
+			<td><a th:href="@{/user/cart/remove(bookName=${book.bookName})}" ><button type="button">Remove</button></a></td>
+			<td th:text="${books.value}"></td>
+		</tr>
+		</span>
+	</table>
+	</div>
+	<div class="buttons" th:unless="${books==null}">
+		<button  th:onclick="window.location.href='/user/cart/purchase'">Buy</button>
+	</div>
+	<div class="buttons">
+		<button class="b-b" th:onclick="window.location.href='/user/book/get/all'">Go to Book Store</button>
+	</div>
+	
+</body>
+</html>
